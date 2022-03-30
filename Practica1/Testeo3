@@ -1,0 +1,38 @@
+package practica1;
+
+public class TestEJ3 {
+    public static void ImprimirVectorEstudiante(Estudiante [] x){
+        for(int i=0;i<2;i++){
+            System.out.println(x[i].tusDatos()); 
+        }
+    }
+    public static void ImprimirVectorProfesor(Profesor [] x){
+        for(int i=0;i<3;i++){
+            System.out.println(x[i].tusDatos()); 
+        }
+    }
+    public static void main(String [] args){
+        Estudiante est1 = new Estudiante("tuvieja", "trola", "1a" , "fullnanito", 1232);
+        Estudiante est2 = new Estudiante("Cas", "norma", "1a" , "fullnanito", 1231);
+
+        Profesor prof1 = new Profesor("FAST","FAST", "FAST", "FAST", "FAST");
+        Profesor prof2 = new Profesor("TU","TU","TU","TU", "TU");
+        Profesor prof3 = new Profesor("VIEJA","VIEJA","VIEJA","VIEJA","VIEJA");
+        
+        Estudiante [] est = new Estudiante[2];
+        Profesor [] prof = new Profesor[3];
+        
+       est[0]=est1;
+       est[1]=est2;
+       ImprimirVectorEstudiante(est);
+
+       System.out.println("========");
+       
+       prof[0]=prof1;
+       prof[1]=prof2;
+       prof[2]=prof3;
+       
+       ImprimirVectorProfesor(prof);
+
+    }
+    
