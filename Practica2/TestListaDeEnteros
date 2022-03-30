@@ -1,0 +1,24 @@
+package tp02.ejercicio1;
+
+public class TestListaDeEnterosEnlazada {
+    public static void ImprimirInverso(ListaDeEnterosEnlazada l, int j){
+        System.out.println(l.elemento(j));
+        if(j>0){
+            j = j-1;
+            ImprimirInverso(l, j);
+        }   
+
+    }
+
+    public static void main (String [] Args){
+        ListaDeEnterosEnlazada l = new ListaDeEnterosEnlazada();
+        l.agregarInicio(12);
+        l.agregarInicio(2);
+        l.agregarInicio(121);
+        l.comenzar();
+        while(!l.fin()){
+            System.out.println(l.proximo());
+        }    
+        ImprimirInverso(l, l.tamanio());
+    }
+}
