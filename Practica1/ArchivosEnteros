@@ -1,0 +1,36 @@
+package practica1;
+
+
+class ArchivoEnteros{
+    
+    public static void retornoFor(int a,int b){
+        System.out.println("los numeros que se comprenden entre "+ a +" y "+b);
+        for(int i = a ; i<b;i++){
+            if(i>a){
+                System.out.println(i);
+            }
+        }
+    }
+    public static void retornoWhile(int a,int b){
+        System.out.println("los numeros que se comprenden entre "+a+" y "+b);
+        int i = a+1;
+        while(i<b){
+            System.out.println(i);
+            i++;
+        }
+    }
+    public static void retornoSinIterativo(int a , int b){
+        a++;
+        System.out.println(a);
+        if (a < b--){
+            retornoSinIterativo(a,b);
+        }
+    }
+
+    public static void main(String []args){
+        retornoFor(1, 4);
+        retornoWhile(1, 4);
+        System.out.println("sin iterativos");
+        retornoSinIterativo(1, 4);
+    }
+}
