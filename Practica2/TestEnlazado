@@ -1,0 +1,56 @@
+package tp02.ejercicio1;
+
+public class TestListaDeEnterosEnlazada {
+    public static void ImprimirInverso(ListaDeEnterosEnlazada l, int j){
+        System.out.println(l.elemento(j));
+        if(j>0){
+            j = j-1;
+            ImprimirInverso(l, j);
+        }   
+
+    }
+
+    public static void SucesionNumeral(int j){
+        if(j != 1){
+            if(j % 2 == 0){
+                System.out.println(j/2);
+                SucesionNumeral(j/2);
+            }else{
+                System.out.println(3*j+1);
+                SucesionNumeral(3*j+1);
+            }
+        }
+    }
+
+    public static void SucesionNumeralConListas(ListaDeEnterosEnlazada l,int i){
+            if(l.elemento(i) != 1){
+                if(l.elemento(i) % 2 == 0){
+                    System.out.println(l.elemento(i)/2);
+                    l.agregarFinal(l.elemento(i)/2);
+                    i=i+1;
+                    SucesionNumeralConListas(l,i);
+                }
+                else{
+                    System.out.println(3*l.elemento(i)+1);
+                    l.agregarFinal(3*l.elemento(i)+1);
+                    i=i+1;
+                    SucesionNumeralConListas(l,i);
+                }
+            }
+        }
+    
+
+    public static void main (String [] Args){
+        ListaDeEnterosEnlazada l = new ListaDeEnterosEnlazada();
+        l.agregarInicio(6);
+        //l.agregarInicio(3);
+        //l.agregarInicio(10);
+        //l.comenzar();
+        //while(!l.fin()){
+          //  System.out.println(l.proximo());
+        //}    
+        //ImprimirInverso(l, l.tamanio());
+        //SucesionNumeral(6);
+        SucesionNumeralConListas(l,1);
+    }
+}
