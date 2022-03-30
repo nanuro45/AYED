@@ -1,0 +1,28 @@
+package practica1;
+
+import java.util.Scanner;
+
+public class ArregloConScanner {
+    
+    public static int[] devolverArreglo(int x){ 
+        int vector[]= new int[(x+1)];
+        for(int i = 1; i<=x ; i++){
+            vector[i]=x*i;
+        }
+        return vector ;
+    }
+    public static void imprimirVector(int x){
+        int[] j = devolverArreglo(x);
+        for(int i = 1;i<=x; i++){
+            System.out.println(j[i]);
+        }
+    }
+    public static void main(String []args){
+        System.out.println("Ingresar longitud de arreglo: ");
+        try (Scanner s = new Scanner (System.in)) {
+            int x = s.nextInt();
+            System.out.println("=======");
+            imprimirVector(x);
+        }
+    }
+}
