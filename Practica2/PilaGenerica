@@ -1,0 +1,26 @@
+package tp02.ejercicio2;
+
+public class PilaGenerica {
+    private ListaEnlazadaGenerica pila = new ListaEnlazadaGenerica<>();
+    
+    public PilaGenerica(){
+
+    }
+
+    public void apilar(Object elem){
+        pila.agregarInicio(elem);
+    }
+
+    public Object desapilar(){
+        Object p = pila.elemento(1);
+        pila.eliminar(p);
+        return p;
+    }
+
+    public void tope(){
+        System.out.println(pila.elemento(1));
+    }
+    public boolean esVacio(){
+        return pila.tamanio() == 0;
+    }
+}
