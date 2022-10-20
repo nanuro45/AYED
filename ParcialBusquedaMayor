@@ -1,0 +1,37 @@
+Sea un árbol general de enteros, realizar un recorrido postorden para retornar el elemento mayor.
+
+Dada una clase Java denominada BuscadorDeArbol, que tiene como variable de instancia un
+ArbolGeneral<Integer> denominado arbol implemente en dicha clase el método:
+public Integer buscarMayorEnPostOrden()
+
+Debe respetar la clase y el método indicado.
+- Puede definir todos los métodos y variables auxiliares que considere
+- Todo aquel método que no esté definido en las prácticas debe ser implementado
+- Respetar el recorrido solicitado
+
+package ar.edu.unlp.info.oo1.ArbolesB;
+
+import ar.edu.unlp.info.oo1.ArbolesB.tp2.ListaGenerica;
+
+public class ParcialRetornoMayor {
+	private ArbolGeneral<Integer> arbol;
+	
+	public int buscarMayorEnPoostOrden() {
+		int maximo=0;
+		buscarMayorPostOrden(this.arbol,maximo);
+		return maximo;
+	}
+	private int buscarMayorPostOrden(ArbolGeneral<Integer> a, int max) {
+		if(a.getDato() > max) {
+			max = a.getDato();
+		}
+		else {
+			ListaGenerica<ArbolGeneral<Integer>> lhijos = a.getHijos();
+			lhijos.comenzar();
+			while(!lhijos.fin()) {
+				buscarMayorPostOrden(lhijos.proximo(),max);
+			}
+		}
+		return max;
+	}
+}
