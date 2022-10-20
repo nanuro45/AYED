@@ -1,0 +1,55 @@
+Dada una clase Java denominada
+BuscadorDeArbol​, que tiene como variable de
+instancia un ArbolBinario<Integer>​ denominado
+arbol​ implemente en dicha clase el método
+public Integer buscar()​. Al encontrar el primer primo
+debe cortar la ejecución.
+Considere que existe dentro de la definición de la
+clase el método esPrimo(Integer num)​ que retorna
+true si el número pasado como parámetro es primo o
+false en caso contrario.
+
+package ar.edu.unlp.info.oo1.ArbolesB;
+
+import ar.edu.unlp.info.oo1.ArbolesB.tp2.ColaGenerica;
+import ar.edu.unlp.info.oo1.ArbolesB.tp2.ListaGenerica;
+
+public class BuscardorDeArbol {
+	ArbolGeneral<Integer> arbol;
+	
+	public int buscador() {
+		int elemento=0;
+		boolean encontro = false;
+		ColaGenerica<ArbolGeneral<Integer>> cola = new ColaGenerica<ArbolGeneral<Integer>>();
+		ArbolGeneral<Integer> aux = null;
+		cola.encolar(this.arbol);
+		cola.encolar(null);
+		while(!cola.esVacio() && !encontro) {
+			aux=cola.desencolar();
+			if(aux !=null) {
+				if(esPrimo(aux.getDato())) {
+					elemento = aux.getDato();
+					encontro = true;
+				}else {
+					ListaGenerica<ArbolGeneral<Integer>> lhijos= aux.getHijos();
+					lhijos.comenzar();
+					while(!lhijos.fin()){
+						cola.encolar(lhijos.proximo());
+					}
+				}
+			}
+			else {
+				if(!cola.esVacio()) {
+					cola.encolar(null);
+				}
+			}
+		}
+		return elemento;
+	}
+	private boolean esPrimo(int n) {
+	    for(int i=2;i<n;i++) {
+	        if(n%i==0)
+	            return false;
+	    }
+	    return true;
+	}
